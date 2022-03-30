@@ -1,0 +1,82 @@
+import sys
+
+wizard = "Wizard"
+elf = "Elf"
+human = "Human"
+orc = "Orc"
+exit = "Exit"
+
+wizard_hp = 70
+elf_hp = 100
+human_hp = 150
+orc_hp = 175
+
+wizard_damage = 150
+elf_damage = 100
+human_damage = 20
+orc_damage = 125
+
+dragon_hp = 300
+dragon_damage = 50
+
+while True:
+    print ("1) ", wizard)
+    print("2) ", elf)
+    print("3) ", human)
+    print("4) ", orc)
+    print("5) ", exit)
+    character = input("Choose your character:")
+    if character == "1" or character.lower() == "wizard":
+        print("character =", wizard)
+        print("my_hp =", wizard_hp)
+        print("my_damage =", wizard_damage)
+        my_character = wizard
+        my_hp = wizard_hp
+        my_damage = wizard_damage
+        break
+    elif character == "2" or character.lower() == "elf":
+        print("character =", elf)
+        print("my_hp =", elf_hp)
+        print("my_damage =", elf_damage)
+        my_character = elf
+        my_hp = elf_hp
+        my_damage = elf_damage
+        break
+    elif character == "3" or character.lower() == "human":
+        print("character =", human)
+        print("my_hp =", human_hp)
+        print("my_damage =", human_damage)
+        my_character = human
+        my_hp = human_hp
+        my_damage = human_damage
+        break
+    elif character == "4" or character.lower() == "orc":
+        print("character =", orc)
+        print("my_hp =", orc_hp)
+        print("my_damage =", orc_damage)
+        my_character = orc
+        my_hp = orc_hp
+        my_damage = orc_damage
+        break
+    elif character == "5" or character.lower() == "exit":
+        print("You have exit the game")
+        sys.exit("Thank You for playing slay the Dragon")
+    else:
+        print("Unknown character")
+
+while True:
+    dragon_hp = dragon_hp - my_damage
+    print("The", my_character, "damaged the Dragon!")
+    print("The dragon's hitpoint are now:", dragon_hp)
+
+    if dragon_hp <= 0:
+        print("The Dragon has lost the battle.")
+        break
+    
+    my_hp = my_hp - dragon_damage
+    print("The Dragon strikes back at", my_character)
+    print("The", my_character, "hitpoints are now:", my_hp)
+    
+    if my_hp <= 0:
+        print("The", my_character, "has lost the battle")
+        break
